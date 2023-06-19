@@ -1,9 +1,3 @@
-// TODO:
-// update all collection responses according to this types
-// and add errors to response type
-// all details here:
-// https://sirenltd.stoplight.io/docs/homebuddy/03jn4ex1irkxg-common-rest-api-conventions
-
 export interface CollectionSuccessApiResponse<T> {
   data: T[];
   meta: MetaModel;
