@@ -1,5 +1,3 @@
-// https://sirenltd.stoplight.io/docs/homebuddy/03jn4ex1irkxg-common-rest-api-conventions#response-body
-
 export interface ValidationErrorsItemModel {
   code: string;
   message: string;

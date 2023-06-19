@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './theme/index.scss';
 
 export function App() {
   return <div className="App">bdbfdb</div>;
