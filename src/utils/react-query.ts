@@ -23,13 +23,21 @@ export const useDeleteMutation = buildMutation('delete');
 function buildMutation(method: 'put' | 'post' | 'delete') {
   return <TMutateParams, TResponse = EmptySuccessApiResponse>(
     url: string,
-    options?: MutationOptions<TResponse, AxiosResponseErrorModel, TMutateParams>
+    options?: MutationOptions<
+      TResponse,
+      AxiosResponseErrorModel,
+      {
+        payload?: TMutateParams;
+        urlParams?: object;
+      } | void
+    >
   ) =>
     useMutation(
       (mutateParams) =>
-        api[method]<TResponse>(pathToUrl(url), mutateParams).then(
-          (x) => x.data
-        ),
+        api[method]<TResponse>(
+          pathToUrl(url, mutateParams?.urlParams),
+          mutateParams?.payload
+        ).then((x) => x.data),
       options
     );
 }
